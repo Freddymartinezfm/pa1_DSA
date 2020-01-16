@@ -6,4 +6,4 @@ OnOptionsMenu.o: OnOptionsMenu.h OnOptionsMenu.cpp
 	g++ -c -g -Wall OnOptionsMenu.cpp
 
 clean:
-	del -f *.o *.exe 
+	rm -f *.o *.exe 
