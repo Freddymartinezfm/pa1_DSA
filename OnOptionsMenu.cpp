@@ -8,7 +8,7 @@ OnOptionsMenu::OnOptionsMenu(){
 }
 
 void OnOptionsMenu::menu(){
-	std::cout << std::setw(10)  << std::setfill('=') << "Menu";
+	std::cout << std::endl <<  std::setw(10)  << std::setfill('=') << "Menu";
 	std::cout << std::setw(10)  << std::setfill('=') << " "  << std::endl;
 
 	std::cout << "i. Incremental Insert " << std::endl;
@@ -21,6 +21,8 @@ void OnOptionsMenu::menu(){
 
 	std::cout << std::setw(10)  << std::setfill('=') << "Menu";
 	std::cout << std::setw(10)  << std::setfill('=') << " "  << std::endl;
+
+	std::cout << "Select an option: " ;
 	
 
 

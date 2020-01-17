@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "Binary_node.h"
 
 

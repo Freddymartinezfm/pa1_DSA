@@ -1,6 +1,5 @@
 
 #include "Search_tree.h"
-#include "Employee.h"
 #include <string>
 #include <iomanip>
 #include "OnOptionsMenu.h"
@@ -22,8 +21,13 @@ int main(){
 			while(std::cin >> key){	
 				if (key == "q"){
 					break;
+				}
+				try {
+					searchTree.insert(std::stoi(key));
+
+				} catch (exception &e){
+					std::cout << "Invalid input to insert: '" << e.what() << "'" << " error.";
 				}	
-				searchTree.insert(std::stoi(key));
 				searchTree.print();
 			}
 			menuOptions.menu();
@@ -39,16 +43,23 @@ int main(){
 					break;
 				}
 
-				searchTree.remove(std::stoi(key));
-				
+				try {
+					searchTree.remove(std::stoi(key));
+				} catch (exception &e){
+					std::cout << "Invalid input to remove: '" << e.what() << "'" << " error. ";
+				}	
 				searchTree.print();
 			}
 
+		} else if (menuSelection == "h"){
+			std::cout << "The height of the binary tree is " <<  searchTree.height() << std::endl;
+			menuOptions.menu();
+		}  else if (menuSelection == "s"){
+			std::cout << "The size of the binary tree is " <<  searchTree.size() << std::endl;
+			menuOptions.menu();
 		} else if (menuSelection == "c"){
 			searchTree.clear();
 			menuOptions.menu();
-
-					
 		} else if (menuSelection == "p"){
 			searchTree.print();
 			menuOptions.menu();
