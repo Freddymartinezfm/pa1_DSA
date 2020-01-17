@@ -42,7 +42,6 @@ int main(){
 					menuOptions.menu();
 					break;
 				}
-
 				try {
 					searchTree.remove(std::stoi(key));
 				} catch (exception &e){
