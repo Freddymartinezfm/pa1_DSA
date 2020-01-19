@@ -5,16 +5,39 @@
 #include "OnOptionsMenu.h"
 #include <cstring>
 
-int main(){
-	OnOptionsMenu menuOptions;
-	bool running = true;
-	Search_tree<int> searchTree;
-	menuOptions.menu();
-	while (running){
-		std::string menuSelection;
-		std::cin >> menuSelection;
+std::string input();
+void build(std::string &);
+bool running = true;
+OnOptionsMenu menuOptions;
+Search_tree<int> searchTree;
 
-		if (menuSelection == "i"){
+int main(){
+	while (running){
+		menuOptions.menu();
+		std::string selection =  input();
+		build(selection);
+	} 
+	return 0;
+}
+
+
+std::string input(){
+		std::string m;
+		while ((std::cin >> m).good()){
+			if (m.length() != 1){
+				std::cin.clear();
+				std::cin.ignore(256, '\n');
+				std::cout << "Invalid selection: too many characters " << std::endl;
+		} else {
+			return m;
+		}
+	}
+	return NULL;
+}
+
+void build(std::string& selection){
+	
+	if (selection == "i"){
 			std::cout << "Enter new integer keys to insert. Enter 'q' to quit " << std::endl;
 			std::string key;
 			
@@ -30,16 +53,16 @@ int main(){
 				}	
 				searchTree.print();
 			}
-			menuOptions.menu();
+				// menuOptions.menu();
 			
-		} else if (menuSelection == "d"){
+		} else if (selection == "d"){
 			std::cout << "Enter new integer keys to delete. Enter 'q' to quit " << std::endl;
 			std::string key;
 			
 			while(std::cin >> key){	
 				if (key == "q"){
 					std::cout << "quit";
-					menuOptions.menu();
+					// menuOptions.menu();
 					break;
 				}
 				try {
@@ -50,23 +73,25 @@ int main(){
 				searchTree.print();
 			}
 
-		} else if (menuSelection == "h"){
+		} else if (selection == "h"){
 			std::cout << "The height of the binary tree is " <<  searchTree.height() << std::endl;
-			menuOptions.menu();
-		}  else if (menuSelection == "s"){
+			// menuOptions.menu();
+		}  else if (selection == "s"){
 			std::cout << "The size of the binary tree is " <<  searchTree.size() << std::endl;
 			menuOptions.menu();
-		} else if (menuSelection == "c"){
+		} else if (selection == "c"){
 			searchTree.clear();
-			menuOptions.menu();
-		} else if (menuSelection == "p"){
+			// menuOptions.menu();
+		} else if (selection == "p"){
 			searchTree.print();
-			menuOptions.menu();
-		} else if (menuSelection == "x"){
+			// menuOptions.menu();
+		} else if (selection == "x"){
 			std::cout << "Program ended " << std::endl;
 			running = false;
 			exit(1);
-			}
-		} 
-	return 0;
+		} else {
+			std::cout << "Not an option " << std::endl;
+
+		}
+
 }
