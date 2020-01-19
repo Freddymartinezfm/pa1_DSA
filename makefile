@@ -5,8 +5,8 @@ main.o: main.cpp Binary_tree.h Search_tree.h errorcode.h
 OnOptionsMenu.o: OnOptionsMenu.h OnOptionsMenu.cpp
 	g++ -c -g -Wall OnOptionsMenu.cpp
 
-# clean:
-# 	rm -f *.o  
-
 clean:
-	del -f *.o *.exe  
+	rm -f *.o  
+
+# clean:
+# 	del -f *.o *.exe  
