@@ -60,6 +60,7 @@ void build(std::string& selection){
 			} catch (exception &e){
 				std::cout << "Invalid input to remove: '" << e.what() << "'" << " error. ";
 			}	
+			searchTree.print();
 		}
 	} else if (selection == "h"){
 		searchTree.print();
